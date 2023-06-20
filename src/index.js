@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Saludo } from "./Saludo";
 import { Usuario } from "./Usuario";
+import { Boton } from "./Boton";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <>
-    {/* <Saludo /> */}
     <Usuario
       nombre="Jhon"
       apellido="Doe"
@@ -19,12 +19,12 @@ root.render(
       }}
     />
 
-    <Usuario
-      nombre="Ryan"
-      apellido="Ray"
-      empleo="Dev tester"
-      edad="23"
-      activo={false}
+    <Boton />
+
+    <input
+      onChange={(e) => {
+        console.log(e.target.value);
+      }}
     />
   </>
 );
