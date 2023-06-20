@@ -20,16 +20,3 @@ export function Saludo() {
     </>
   );
 }
-
-export function Usuario({ nombre, apellido, empleo, edad, activo, saludar }) {
-  return (
-    <>
-      <h1>
-        {nombre} {apellido}
-      </h1>
-      <p>Trabajo: {empleo}</p>
-      <p>Edad: {edad}</p>
-      <p>{activo ? "Activo" : "Inactivo"}</p>
-    </>
-  );
-}
