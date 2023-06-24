@@ -1,36 +1,42 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Saludo } from "./Saludo";
-import { Usuario } from "./Usuario";
-import { Boton } from "./Boton";
-import { Post } from "./Posts";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const usuarios = [
-  {
-    id: 1,
-    nombre: "Ryan",
-    img: "https://robohash.org/usuario1",
-  },
-  {
-    id: 2,
-    nombre: "Joe",
-    img: "https://robohash.org/usuario2",
-  },
-];
+function Contador() {
+	const [contador, setContador] = useState(0);
+	const [mensaje, setMensaje] = useState("");
+
+	useEffect(() => {
+		console.log("useEffect");
+	}, [mensaje]);
+
+	return (
+		<div>
+			<p>{contador}</p>
+			<button onClick={() => setContador(contador + 1)}>Sumar</button>
+			<hr />
+			<input
+				type="text"
+				onChange={(e) => {
+					setMensaje(e.target.value);
+				}}
+			/>
+			<button
+				onClick={() => {
+					alert(mensaje);
+				}}
+			>
+				Guardar
+			</button>
+		</div>
+	);
+}
 
 root.render(
-  <>
-    <Post />
-
-    {usuarios.map((usuario, i) => {
-      return (
-        <div key={i}>
-          <h1>{usuario.nombre}</h1>
-          <img src={usuario.img} />
-        </div>
-      );
-    })}
-  </>
+	<>
+		<Contador />
+	</>
 );
